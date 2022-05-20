@@ -8,6 +8,7 @@ namespace DiceGame
         static void Main(string[] args)
         {
             ForstetteEllerAvslutt objFortsettEllerAvslutt = new ForstetteEllerAvslutt();
+
             Random rnd = new Random();
             bool status = true;
            // bool hvaErStatusen = true;
@@ -21,11 +22,9 @@ namespace DiceGame
             Console.WriteLine("Første som treffer 21, vinner!");
             Console.WriteLine("NB!! Følg med på taksten, det kommer mer når du når 15 poeng!");
 
-            while (status)
+            while (status) 
             {
                 
-                
-
                 if (yourTotalSum >= 15 && yourTotalSum < 21)
                 {
                     while (leggeTilEllerFjerneStatus)
@@ -97,7 +96,7 @@ namespace DiceGame
                {
                     Console.WriteLine("Du tapte!");
                     objFortsettEllerAvslutt.FortsettAvslutt();
-                    status = objFortsettEllerAvslutt.hvaErStatusen;
+                    status = objFortsettEllerAvslutt.setStatus();
                     if(status == true)
                     {
                         yourTotalSum = 0;
@@ -109,7 +108,7 @@ namespace DiceGame
                 {
                     Console.WriteLine("Du vant!");
                     objFortsettEllerAvslutt.FortsettAvslutt();
-                    status = objFortsettEllerAvslutt.hvaErStatusen;
+                    status = objFortsettEllerAvslutt.setStatus();
                     if (status == true)
                     {
                         yourTotalSum = 0;

@@ -9,21 +9,21 @@ namespace DiceGame
         public void FortsettAvslutt()
         {
             Console.WriteLine("vil du fortsette? Trykk \'J\' for JA og \'N\' for NEI");
-            jaEllerNei = Console.ReadLine()[0];
-            if (jaEllerNei == 'N')
+            jaEllerNei = Convert.ToChar(Console.ReadLine());
+            if (jaEllerNei == 'N' || jaEllerNei == 'n')
             {
                 status = false;
             }
-            else if(jaEllerNei == 'J')
+            else if(jaEllerNei == 'J' || jaEllerNei == 'j')
             {
                 status = true;
             }
 
 
         }
-        public ForstetteEllerAvslutt()
+        public bool setStatus()
         {
-            hvaErStatusen = status;
+           return status;
         }
     }
 }
