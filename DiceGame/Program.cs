@@ -7,22 +7,43 @@ namespace DiceGame
         
         static void Main(string[] args)
         {
+            ForstetteEllerAvslutt objFortsettEllerAvslutt = new ForstetteEllerAvslutt();
             Random rnd = new Random();
             bool status = true;
-            char jaEllerNei = 'J';
+           // bool hvaErStatusen = true;
+            //char jaEllerNei = 'J';
             char leggeTilEllerFjerne = '+';
-            Console.WriteLine("Dice Game!");
-            Console.WriteLine("Første som treffer 21, vinner!");
-
+            bool leggeTilEllerFjerneStatus = true;
             int yourTotalSum = 0;
             int motstanderSum = 0;
 
+            Console.WriteLine("Dice Game!");
+            Console.WriteLine("Første som treffer 21, vinner!");
+            Console.WriteLine("NB!! Følg med på taksten, det kommer mer når du når 15 poeng!");
+
             while (status)
             {
-                if (jaEllerNei == 'N')
+                
+                
+
+                if (yourTotalSum >= 15 && yourTotalSum < 21)
                 {
-                    status = false;
-                    Console.WriteLine("Du har valgt å avslutte");
+                    while (leggeTilEllerFjerneStatus)
+                    {
+                        Console.WriteLine("!!NB!! Ønsker du å trekke i fra eller legge til på neste kast?. Trykk + for å legge til, eller - for å trekke i fra");
+                        leggeTilEllerFjerne = Console.ReadLine()[0];
+
+                        if (leggeTilEllerFjerne != '+' && leggeTilEllerFjerne != '-')
+                        {
+                            Console.WriteLine("Ugyldig symbol, Prøv + eller -");
+                            leggeTilEllerFjerneStatus = true;
+                        }
+                        else
+                        {
+                            leggeTilEllerFjerneStatus = false;
+                        }
+                    }
+
                 }
 
                 int diceNumber = rnd.Next(1, 7);
@@ -31,7 +52,7 @@ namespace DiceGame
 
                 Console.WriteLine("Rist hånda og kast terningen! Hvilket nr håper du på?");
                 int shakeHand = Convert.ToInt32(Console.ReadLine());
-
+                int nummer = shakeHand;
 
                 if (motstanderSum < 15)
                 {
@@ -66,152 +87,54 @@ namespace DiceGame
                 }
 
 
-                int nummer = shakeHand;
-                switch (nummer)
-                {
-                    case 1:
-                        Console.WriteLine("Du håpet på: " + nummer + " og fikk: " + diceNumber);
-                        Console.WriteLine("Motstanderen din fikk: " + otherDiceNumber);
-                        Console.WriteLine("Din totale sum er: " + yourTotalSum);
-                        Console.WriteLine("Motstanderen sin sum er: " + motstanderSum);
-                        if (yourTotalSum >= 15 && yourTotalSum < 22)
-                        {
-                            Console.WriteLine("!!NB!! Ønsker du å trekke i fra eller legge til på neste kast?. Trykk + for å legge til, eller - for å trekke i fra");
-                            leggeTilEllerFjerne = Console.ReadLine()[0];
-                        }
-                        break;
+                leggeTilEllerFjerneStatus = true;
+                Console.WriteLine("Du håpet på: " + nummer + " og fikk: " + diceNumber);
+                Console.WriteLine("Motstanderen din fikk: " + otherDiceNumber);
+                Console.WriteLine("Din totale sum er: " + yourTotalSum);
+                Console.WriteLine("Motstanderen sin sum er: " + motstanderSum);
 
-                    case 2:
-                        Console.WriteLine("Du håpet på: " + nummer + " og fikk: " + diceNumber);
-                        Console.WriteLine("Motstanderen din fikk: " + otherDiceNumber);
-                        Console.WriteLine("Din totale sum er: " + yourTotalSum);
-                        Console.WriteLine("Motstanderen sin sum er: " + motstanderSum);
-                        if (yourTotalSum >= 15 && yourTotalSum < 22)
-                        {
-                            Console.WriteLine("!!NB!! Ønsker du å trekke i fra eller legge til på neste kast?. Trykk + for å legge til, eller - for å trekke i fra");
-                            leggeTilEllerFjerne = Console.ReadLine()[0];
-                        }
-                        break;
-
-                    case 3:
-                        Console.WriteLine("Du håpet på: " + nummer + " og fikk: " + diceNumber);
-                        Console.WriteLine("Motstanderen din fikk: " + otherDiceNumber);
-                        Console.WriteLine("Din totale sum er: " + yourTotalSum);
-                        Console.WriteLine("Motstanderen sin sum er: " + motstanderSum);
-                        if (yourTotalSum >= 15 && yourTotalSum < 22)
-                        {
-                            Console.WriteLine("!!NB!! Ønsker du å trekke i fra eller legge til på neste kast?. Trykk + for å legge til, eller - for å trekke i fra");
-                            leggeTilEllerFjerne = Console.ReadLine()[0];
-                        }
-                        break;
-
-                    case 4:
-                        Console.WriteLine("Du håpet på: " + nummer + " og fikk: " + diceNumber);
-                        Console.WriteLine("Motstanderen din fikk: " + otherDiceNumber);
-                        Console.WriteLine("Din totale sum er: " + yourTotalSum);
-                        Console.WriteLine("Motstanderen sin sum er: " + motstanderSum);
-                        if (yourTotalSum >= 15 && yourTotalSum < 22)
-                        {
-                            Console.WriteLine("!!NB!! Ønsker du å trekke i fra eller legge til på neste kast?. Trykk + for å legge til, eller - for å trekke i fra");
-                            leggeTilEllerFjerne = Console.ReadLine()[0];
-                        }
-                        break;
-
-                    case 5:
-                        Console.WriteLine("Du håpet på: " + nummer + " og fikk: " + diceNumber);
-                        Console.WriteLine("Motstanderen din fikk: " + otherDiceNumber);
-                        Console.WriteLine("Din totale sum er: " + yourTotalSum);
-                        Console.WriteLine("Motstanderen sin sum er: " + motstanderSum);
-                        if (yourTotalSum >= 15 && yourTotalSum < 22)
-                        {
-                            Console.WriteLine("!!NB!! Ønsker du å trekke i fra eller legge til på neste kast?. Trykk + for å legge til, eller - for å trekke i fra");
-                            leggeTilEllerFjerne = Console.ReadLine()[0];
-                        }
-                        break;
-
-                    case 6:
-                        Console.WriteLine("Du håpet på: " + nummer + " og fikk: " + diceNumber);
-                        Console.WriteLine("Motstanderen din fikk: " + otherDiceNumber);
-                        Console.WriteLine("Din totale sum er: " + yourTotalSum);
-                        Console.WriteLine("Motstanderen sin sum er: " + motstanderSum);
-                        if (yourTotalSum >= 15 && yourTotalSum < 22)
-                        {
-                            Console.WriteLine("!!NB!! Ønsker du å trekke i fra eller legge til på neste kast?. Trykk + for å legge til, eller - for å trekke i fra");
-                            leggeTilEllerFjerne = Console.ReadLine()[0];
-                        }
-
-                        break;
-                    default:
-                        Console.WriteLine("Ugyldig tall");
-                        break;
-
-                }
-
-
-
-
-
-                if (yourTotalSum > 21)
-                {
+               if (yourTotalSum > 21 || motstanderSum == 21)
+               {
                     Console.WriteLine("Du tapte!");
-                    Console.WriteLine("vil du fortsette? Trykk \'J\' for JA og \'N\' for NEI");
-                    jaEllerNei = Console.ReadLine()[0];
-                    if (jaEllerNei == 'N') status = false;
-                    if (jaEllerNei == 'J')
+                    objFortsettEllerAvslutt.FortsettAvslutt();
+                    status = objFortsettEllerAvslutt.hvaErStatusen;
+                    if(status == true)
                     {
                         yourTotalSum = 0;
                         motstanderSum = 0;
                     }
-                }
-                if (yourTotalSum == 21)
-                {
-                    Console.WriteLine("Du vant!");
-                    Console.WriteLine("vil du fortsette? Trykk \'J\' for JA og \'N\' for NEI");
-                    jaEllerNei = Console.ReadLine()[0];
-                    if (jaEllerNei == 'N') status = false;
-                    if (jaEllerNei == 'J')
-                    {
-                        yourTotalSum = 0;
-                        motstanderSum = 0;
-                    }
-                }
-                if (motstanderSum > 21)
-                {
-                    Console.WriteLine("Du vant!");
-                    Console.WriteLine("vil du fortsette? Trykk \'J\' for JA og \'N\' for NEI");
-                    jaEllerNei = Console.ReadLine()[0];
-                    if (jaEllerNei == 'N') status = false;
-                    if (jaEllerNei == 'J')
-                    {
-                        yourTotalSum = 0;
-                        motstanderSum = 0;
-                    }
-                }
-                if (motstanderSum == 21)
-                {
-                    Console.WriteLine("Du tapte!");
-                    Console.WriteLine("vil du fortsette? Trykk \'J\' for JA og \'N\' for NEI");
-                    jaEllerNei = Console.ReadLine()[0];
-                    if (jaEllerNei == 'N') status = false;
-                    if (jaEllerNei == 'J')
-                    {
-                        yourTotalSum = 0;
-                        motstanderSum = 0;
-                    }
-                }
-
-
-
-
                     
-                
+                }
+                else if (yourTotalSum == 21 || motstanderSum > 21)
+                {
+                    Console.WriteLine("Du vant!");
+                    objFortsettEllerAvslutt.FortsettAvslutt();
+                    status = objFortsettEllerAvslutt.hvaErStatusen;
+                    if (status == true)
+                    {
+                        yourTotalSum = 0;
+                        motstanderSum = 0;
+                    }
+
+                    // Console.WriteLine("vil du fortsette? Trykk \'J\' for JA
+                    // og \'N\' for NEI");
+                    // jaEllerNei = Console.ReadLine()[0];
+                    // if (jaEllerNei == 'N') status = false;
+                    // if (jaEllerNei == 'J')
+                    // {
+                    //  yourTotalSum = 0;
+                    //    motstanderSum = 0;
+                    //  }
+                }
+                Console.WriteLine(status);
+                if (status == false)
+                {
+                    //status = false;
+                    Console.WriteLine("Du har valgt å avslutte");
+                }
 
 
-
-
-                
             }
-            
         }
     }
 }
